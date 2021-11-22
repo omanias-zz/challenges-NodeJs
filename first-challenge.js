@@ -1,35 +1,35 @@
 class Usuario {
-  constructor(nombre, apellido, mascotas, libros ) {
-      this.nombre=nombre;
-      this.apellido=apellido;
-      this.mascotas=[mascotas];
-      this.libros=[libros];
+  constructor(nombre, apellido, mascotas = [], libros = []) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.mascotas = mascotas;
+    this.libros = libros;
   }
 
-  getFullName(){
-      return (`${this.nombre} ${this.apellido}`)
+  getFullName() {
+    return `${this.nombre} ${this.apellido}`;
   }
 
-  addMascota(raza){
-      return this.mascotas.push(raza)
+  addMascota(pet) {
+    return this.mascotas.push(pet);
   }
 
-  countMascotas(){
-      return this.mascotas.length
+  countMascotas() {
+    return this.mascotas.length;
   }
 
-  addBook(){
-      return
+  addBook(book, author) {
+    return this.libros.push({ book: book, author: author });
   }
 
-  getBookNames(){
-      return
+  getBookNames() {
+    return this.libros.map((a) => a);
   }
 }
 
-const usuario= new Usuario('Matias','Lopez','canario');
-usuario.addMascota('pitbull')
+const usuario = new Usuario("Omar", "Manias", ["perro"], []);
 
-console.log(usuario)
+usuario.addMascota("canario");
+usuario.addBook("Martin Fierro", "Jose Hernandez");
 
-
+console.log(usuario);
